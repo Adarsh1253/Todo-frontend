@@ -19,7 +19,8 @@ const AuthForm = ({ onAuthSuccess }) => {
     e.preventDefault();
     const endpoint = isLogin ? "login" : "register";
     try {
-      const res = await axios.post(`http://localhost:5000/api/auth/${endpoint}`, form);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/${endpoint}`, form);
+
       if (isLogin) {
         localStorage.setItem("token", res.data.token);
         onAuthSuccess(); // let App know user is logged in

@@ -3,7 +3,7 @@ import axios from "axios";
 const API = axios.create({
   baseURL: "https://todo-backend-qgoe.onrender.com",
 });
-
+console.log(Process.env.REACT_APP_API_URL);
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
   if (token) req.headers.Authorization = `Bearer ${token}`;
